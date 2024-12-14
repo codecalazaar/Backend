@@ -1,0 +1,74 @@
+
+Authentication patterns (2 types):
+ 1.stateful : which maintains state or data on server side
+ 2.stateless : which has no state
+
+ 1.stateful:
+ 
+ //user send the username and password, he gets the userid from the server
+ //this id is saved in the server
+ //while requesting the server client needs to show the userid to get the data
+ //Transfer UId: either through 3 steps(vice-versa)
+   1.cookies : used for ejs
+   2.response
+   3.headers : used for REST api
+
+
+// Express Flow:
+   
+ 1.Auth Middleware : checks for cookie value or uid, if valid calls next(),else rejects the request
+
+ 
+// use 'npm install uuid' to give the uid (session id);
+
+
+
+1.req.url (this is the request url and it may contains id,name,...etc depending on the data of the url request)
+2.req.body (body(the data sent by the client ex: form, data,,etc) may contains ----> name,email,gender ......)
+3.local.url (used by the ejs the variable renders in the ejs file)
+
+
+1.statefull:
+
+//everytime server restarts the map become empty so the previous id is unusable
+//in this file we did the 2 methods
+  method 1: where all the users can see the common data of the urls of the all the users
+  mehtod 2: where individual user can see his url data;
+
+
+2.stateless:
+
+//there is no id stored by the server, instead sends the token in which the data is stored
+//when the data is requested the token is read and verified and data is sent.
+
+
+
+
+
+
+
+
+
+
+
+
+//AUTEHNTICATION EXPLANATION:(here uid is used for the individuality i.e each user gets his personal data )
+
+i.Paths:     routes:          extended_paths:
+ 1.('/')------staticRouter----('/')=>('/') ------------------validate user(using auth middleware)-------true----> render-- home page(views)
+                                                                                                 -------false---> redirect--('/login')---render--login page(views)
+                              ('/signup')=>('/signup')---render-- signup_page
+                              ('/login')=>('/login')----render----login page
+
+used for related to databases:     
+
+     WHILE LOGGING IN sign_up/login page                                          controller(using model)
+ 2.('/usr')---usrRouter-------('/')=>('/usr')------------------create a user in database(handleusersignup)-----redirect--('/')----checkauth(middleware)---false(as no uid)---redirect---login page--('/usr/login')---validate the user using database(controller)--gives the set uid and map the user(service)----redirect('/')---authmiddleware(gives the user with uid using(service)---staticRouter--gets allurls---render---homepage
+
+                              ('/login')=>('/usr/login')-------handleuserlogin(checks if user is valid or not using usr database)----true----create uid and set it with user----redirect---('/')-----staticRouter-----(checks uid)------true-----render---home---and 3RD STEP
+                                                                                                                                                                      ------false---redirec---('/login')---render--login page.
+
+     AFTER LOGIN(use of middlewares): home page submition
+
+ 3.('/url')---urlRouter-------('/')=>('/url')------------------ restrictedonly middleware(checks if user has uid)----false---redirect---('/login')----render---login page
+                                                                                                                -----true----gets user with uid(from service)--->create the shorturl in database(handlenewurl)----render---homepage---redirect---('/url')------>go on......

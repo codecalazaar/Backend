@@ -1,0 +1,56 @@
+
+mvc(model,view,controller)---model;
+
+dependencies:(used in the deployment)
+
+1. npm i express;
+2. npm i ejs;
+3. npm i mongoose;
+
+dev dependencies:(not used in the deployment) only in development environment
+
+1.npm i nodemon --D;
+
+
+
+ we use the bootstrap cdn for the css and js:
+
+//1.partials is the component in the views for the repeated head tag
+//2.script is the component in the views for the repated script tag
+
+
+//routes:(contains)
+   user:
+    paths: /usr/signup----get-->render(signup page)--submit--->usr/signup--->post method
+           /usr/signup----post
+
+           /usr/signin----get
+           /usr/signin----post
+
+
+
+
+
+i.models:(generally define the schema of the model)
+
+//can have the multiple models(using the user model)
+// about salt: before saving the password in mangoose we use this
+    
+     1.mongoose save pre example
+     2.for encrypting password we use hashing i.e crypto hash
+     3.this hashing is used to so that when mongodb is leaked nobody knows the password of the user to login as the stored
+       password is a hashed one and the hashed password cannot return back the original password using the salt, instead while
+       logging in the entered password is hashed and checked with the password stored.
+
+
+//Authentication:(using the jwt tokens):
+
+ 1.npm i jsonwebtoken
+ 2.need an external service folder to set the tokens when logged in and get the tokens
+ 3.this tokens are used for the session to establish using the cookies
+ 4.without these tokens or session the user is logged out every time after the refresh 
+ 5.it is like the server identify the user if he is exists or not 
+
+
+
+    

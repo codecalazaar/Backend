@@ -1,0 +1,11 @@
+//we use 'multer' package for the files uploading'
+
+
+
+//steps to install multer:
+
+1.npm i multer
+2.enctype="multipart/form-data" is necessary for file uploading in form for encryption
+
+
+here 'req.body' is null bacause we sent the file and there is no text field

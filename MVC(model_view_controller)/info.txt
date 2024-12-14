@@ -1,0 +1,17 @@
+its an organizing way of keeping files into respective folder
+
+controller(manipulate)-->model(manipulate)-->view
+
+controller -- contains the route(path) functions of the "routes file"
+routes -- contains the all the path functions
+middlewares -- contains all the middlewares
+models -- contains all the models of the schema for the database
+views -- contains the UI
+
+// index.js -->routes(user.js)-->controller(user.js)-->models(user.js)
+
+index.js-- excutes the server
+routes(user.js) -- used for the putting the common route methods,later which contains call function as they are defined in controller
+connection.js -- for putting the connection command of database
+controller(user.js) -- contains the functions of routes(user.js) function defnitions 
+

@@ -1,0 +1,9 @@
+1.server side rendering is basically rendering the html from the server file
+2.server side engines called templating engines are required for the making the html in a seperate file
+//Templating Engines: used for server side rendering
+  1.EJS : Embedded Javascript Templating
+  2.pug js 
+  3.handlebars
+
+3.we can make the ejs files(Html files) in the views folder;
+

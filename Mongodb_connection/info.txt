@@ -1,0 +1,16 @@
+
+1.npm i mongoose
+
+
+Schema - Define the structure
+
+    Schema & Model
+   
+ using model we do CRUD operations
+
+Model Create and put the Schema -->this is collection
+
+connection the db using the ip and port and give the name --->return promise
+
+//now for methods:
+1.the handler functions become async -->(async(req,res))

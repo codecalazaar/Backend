@@ -1,0 +1,18 @@
+STATELESS AUTHENTICATION:
+
+//these tokens/session ids are used for the user authentication and is for induvidual user to fetch details of the each user rather than
+all users info.
+
+//server doesn't keep any state instead put the data in a token and send it as cookie, which requires less memory usage of server.
+//we generate tokens based on the secret code that we have and if the token changed then data is also changed
+//the data we fetch remains same even after the server restarts cause the server doesn't have any state related to data
+//it will have longer session untill the cookie is deleted that contains the token
+
+
+jwt : JSON web token
+
+npm i jsonwebtoken
+
+//when the user is logged in with a token then the session is established
+//we can loggin into the same user from other device browser untill the initial token session is in use 
+//if the session is ended then the token is deleted then we cannot login into that user if we use the same token which is deleted

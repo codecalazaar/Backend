@@ -1,0 +1,2 @@
+//Authentication means to check if the user is valid or not
+//Authorization comes after Authentication in which he is checked if he has the authority to access a particular feature.

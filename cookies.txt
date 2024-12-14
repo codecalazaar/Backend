@@ -1,0 +1,24 @@
+Cookies:
+
+
+//the uid or tokens are sent to the user using the cookies/Response in the browser
+//the cookies are domain specific, i.e they only send the cookies based on the domain they are related to
+//cookies are secure by default
+//can set the expire time for cookie
+//domain name: ".google.com" can be accessed by all google links like gmail,utube etc...
+//cookies are limited to browser only and cannot be used for mobile app.
+
+
+
+
+Responses :
+
+//server can send the token as the response/in header
+//generally the headers contains built in header "authorization" in which we can send the token followed by "Bearer" i.e Bearer <token>
+
+response:
+ res.json({token});
+
+request:
+userid = user.headers['authorization'];
+
